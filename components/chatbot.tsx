@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<
-    Array<{ id: number; text: string; sender: "user" | "bot" }>
+    Array<{ id: number; text: string; sender: "user" | "bot"; isTyping?: boolean }>
   >([
     {
       id: 1,
@@ -20,7 +20,7 @@ export function Chatbot() {
   ])
   const [inputValue, setInputValue] = useState("")
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!inputValue.trim()) return
 
     const userMessage = {
@@ -30,17 +30,63 @@ export function Chatbot() {
     }
 
     setMessages([...messages, userMessage])
+    const messageText = inputValue
     setInputValue("")
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse = {
-        id: messages.length + 2,
-        text: "Thanks for your message! Our team will get back to you soon. In the meantime, check out our games or articles to learn more about Outlaw Games.",
-        sender: "bot" as const,
+    // Show typing indicator
+    const typingMessage = {
+      id: messages.length + 2,
+      text: "Typing...",
+      sender: "bot" as const,
+      isTyping: true,
+    }
+    setMessages((prev) => [...prev, typingMessage])
+
+    try {
+      const response = await fetch("https://katalyst-crm.fly.dev/webhook/7bf164be-6a8c-4af7-bd7b-a2d68bf183d1", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: messageText,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to get response")
       }
-      setMessages((prev) => [...prev, botResponse])
-    }, 1000)
+
+      const data = await response.json()
+      const botResponseText = data.Response || data.response || "I'm sorry, I couldn't process that request. Please try again."
+
+      // Remove typing indicator and add bot response
+      setMessages((prev) => {
+        const filtered = prev.filter((msg) => !msg.isTyping)
+        return [
+          ...filtered,
+          {
+            id: prev.length + 1,
+            text: botResponseText,
+            sender: "bot" as const,
+          },
+        ]
+      })
+    } catch (error) {
+      console.error("Error sending message:", error)
+      // Remove typing indicator and show error message
+      setMessages((prev) => {
+        const filtered = prev.filter((msg) => !msg.isTyping)
+        return [
+          ...filtered,
+          {
+            id: prev.length + 1,
+            text: "Sorry, I'm having trouble connecting right now. Please try again later.",
+            sender: "bot" as const,
+          },
+        ]
+      })
+    }
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -122,10 +168,22 @@ export function Chatbot() {
                     className={`max-w-[80%] rounded-2xl px-4 py-2 ${
                       message.sender === "user"
                         ? "bg-[#A4FF42] text-black"
+                        : message.isTyping
+                        ? "bg-white/5 text-white/60"
                         : "bg-white/10 text-white"
                     }`}
                   >
-                    <p className="text-sm leading-relaxed">{message.text}</p>
+                    <p className="text-sm leading-relaxed">
+                      {message.isTyping ? (
+                        <span className="flex items-center gap-1">
+                          <span className="animate-pulse">●</span>
+                          <span className="animate-pulse delay-75">●</span>
+                          <span className="animate-pulse delay-150">●</span>
+                        </span>
+                      ) : (
+                        message.text
+                      )}
+                    </p>
                   </div>
                 </motion.div>
               ))}
