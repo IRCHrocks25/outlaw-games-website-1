@@ -1,0 +1,92 @@
+"use client"
+
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { ChevronDown } from "lucide-react"
+
+export function Hero() {
+  const ref = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+
+  return (
+    <section ref={ref} className="relative h-screen overflow-hidden bg-black">
+      {/* Video Background with Parallax */}
+      <motion.div style={{ y }} className="absolute inset-0">
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          <source src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/outlaw%20games_2-7X5iDRjjxE1c5t2qmeFAsVWujUs7AG-uahmGjkQkRS2FcJdc3aHrs8AI2uddX.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
+      </motion.div>
+
+      {/* Hero Content */}
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4"
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-5xl"
+        >
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight">
+            BUILDING THE
+            <br />
+            NEXT EVOLUTION
+            <br />
+            <span className="text-[#A4FF42]">OF WEB3 GAMING</span>
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto"
+          >
+            Experience the future of gaming with cinematic characters, classic gameplay, and blockchain rewards.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-8 py-6"
+            >
+              <a href="https://outlawgames.app/" target="_blank" rel="noopener noreferrer">
+                Explore Games
+              </a>
+            </Button>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+            className="text-white/50"
+          >
+            <ChevronDown className="w-8 h-8" />
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </section>
+  )
+}
