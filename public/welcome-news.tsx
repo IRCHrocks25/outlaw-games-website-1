@@ -63,49 +63,7 @@ export function WelcomeNews() {
         </motion.h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-          {/* Three Stacked Articles - Left Side */}
-          <div className="flex flex-col gap-4">
-            {otherArticles.map((article, index) => (
-              <motion.article
-                key={index}
-                initial={{ opacity: 0, x: 30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                className="relative group cursor-pointer flex-1"
-              >
-                <div className="absolute -inset-1 bg-[#A4FF42]/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-                <div className="relative p-3 lg:p-4 rounded-xl border border-[#A4FF42]/10 bg-[#0a0a0a]/80 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-[#A4FF42]/40 hover:bg-[#A4FF42]/5 h-full">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
-
-                  <div className="relative z-10 flex flex-row gap-4 h-full items-center">
-                    <div className="flex-shrink-0 w-20 lg:w-24 h-20 lg:h-24 rounded-lg overflow-hidden">
-                      <img
-                        src={article.image || "/placeholder.svg"}
-                        alt={article.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-
-                    <div className="flex-1 flex flex-col">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="px-2 py-0.5 rounded-full bg-[#A4FF42]/20 text-[#A4FF42] text-[10px] font-bold uppercase tracking-wider">
-                          {article.category}
-                        </span>
-                      </div>
-                      <h4 className="font-bold text-white text-sm lg:text-lg group-hover:text-[#A4FF42] transition-colors line-clamp-2">
-                        {article.title}
-                      </h4>
-                      <p className="hidden lg:block mt-1 text-white/50 text-sm leading-relaxed line-clamp-2">
-                        {article.excerpt}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-
-          {/* Featured Article - Right Side */}
+          {/* Featured Article - Left Side */}
           <motion.article
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -147,6 +105,48 @@ export function WelcomeNews() {
               </div>
             </div>
           </motion.article>
+
+          {/* Three Stacked Articles - Right Side */}
+          <div className="flex flex-col gap-4">
+            {otherArticles.map((article, index) => (
+              <motion.article
+                key={index}
+                initial={{ opacity: 0, x: 30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                className="relative group cursor-pointer flex-1"
+              >
+                <div className="absolute -inset-1 bg-[#A4FF42]/10 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                <div className="relative p-3 lg:p-4 rounded-xl border border-[#A4FF42]/10 bg-[#0a0a0a]/80 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-[#A4FF42]/40 hover:bg-[#A4FF42]/5 h-full">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+
+                  <div className="relative z-10 flex flex-row gap-4 h-full items-center">
+                    <div className="flex-shrink-0 w-20 lg:w-24 h-20 lg:h-24 rounded-lg overflow-hidden">
+                      <img
+                        src={article.image || "/placeholder.svg"}
+                        alt={article.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+
+                    <div className="flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="px-2 py-0.5 rounded-full bg-[#A4FF42]/20 text-[#A4FF42] text-[10px] font-bold uppercase tracking-wider">
+                          {article.category}
+                        </span>
+                      </div>
+                      <h4 className="font-bold text-white text-sm lg:text-lg group-hover:text-[#A4FF42] transition-colors line-clamp-2">
+                        {article.title}
+                      </h4>
+                      <p className="hidden lg:block mt-1 text-white/50 text-sm leading-relaxed line-clamp-2">
+                        {article.excerpt}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </div>
 
         <motion.div

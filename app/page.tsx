@@ -3,6 +3,8 @@ import { Hero } from "@/components/hero"
 import { AboutSection } from "@/components/about-section"
 import { WelcomeNews } from "@/components/welcome-news"
 import { GamesSection } from "@/components/games-section"
+import { MMORPGSection } from "@/components/mmorpg-section"
+import { RoadmapSection } from "@/components/roadmap-section"
 import { ArticlesSection } from "@/components/articles-section"
 import { TechSection } from "@/components/tech-section"
 import { Newsletter } from "@/components/newsletter"
@@ -17,10 +19,12 @@ export default async function Home() {
       <Navigation />
       <Hero />
       <AboutSection />
+      <TechSection />
       <WelcomeNews />
       <GamesSection />
+      <MMORPGSection />
+      <RoadmapSection />
       <ArticlesSection articles={articles} />
-      <TechSection />
       <Newsletter />
       <Footer />
     </main>

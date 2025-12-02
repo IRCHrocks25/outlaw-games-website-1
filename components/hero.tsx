@@ -97,7 +97,7 @@ export function Hero() {
                 size="lg"
                 className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-8 py-6 shadow-[0_0_30px_rgba(164,255,66,0.3)]"
               >
-                <a href="https://outlawgames.app/" target="_blank" rel="noopener noreferrer">
+                <a href="https://linktr.ee/outlawgamefi" target="_blank" rel="noopener noreferrer">
                   Explore Games
                 </a>
               </Button>

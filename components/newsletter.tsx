@@ -16,116 +16,75 @@ export function Newsletter() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle newsletter signup
     console.log("Newsletter signup:", email)
     setEmail("")
   }
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 bg-black relative overflow-hidden">
-      {/* Background Effects */}
+    <section ref={ref} className="py-12 lg:py-24 bg-black relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#A4FF42]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#A4FF42]/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="relative rounded-2xl lg:rounded-3xl border border-[#A4FF42]/20 bg-[#A4FF42]/5 backdrop-blur-xl overflow-hidden p-6 lg:p-12"
         >
-          <motion.div
-            whileHover={{ scale: 1.02, borderColor: "rgba(164,255,66,0.4)" }}
-            transition={{ duration: 0.3 }}
-            className="bg-black/80 backdrop-blur-sm border-2 border-[#A4FF42]/20 rounded-2xl p-8 lg:p-12 shadow-[0_0_30px_rgba(164,255,66,0.1)]"
-          >
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl lg:text-6xl font-bold mb-6"
-            >
-              <motion.span
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-white"
-              >
-                STAY IN THE
-              </motion.span>{" "}
-              <motion.span
-                initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-                animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4, type: "spring", stiffness: 200 }}
-                className="text-[#A4FF42] inline-block"
-              >
-                LOOP
-              </motion.span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-white text-lg mb-4"
-            >
-              Subscribe here for all the news that's fit to fly delivered straight to your inbox! You can opt out
-              anytime.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-white/60 text-sm mb-8"
-            >
-              By subscribing, you agree to receive emails from us. Please review our{" "}
-              <a href="#" className="underline text-white hover:text-[#A4FF42] transition-colors">
-                privacy policy
-              </a>{" "}
-              for more information.
-            </motion.p>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
+
+          <div className="relative z-10 grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+            <div>
+              <h2 className="text-3xl lg:text-5xl font-bold text-white uppercase">
+                STAY IN THE <span className="text-[#A4FF42]">LOOP</span>
+              </h2>
+              <p className="mt-3 lg:mt-4 text-white/60 text-base lg:text-lg">
+                Subscribe here for all the news that's fit to fly delivered straight to your inbox! You can opt out
+                anytime.
+              </p>
+              <p className="hidden lg:block mt-4 text-white/40 text-sm">
+                By subscribing, you agree to receive emails from us. Please review our{" "}
+                <a href="#" className="underline hover:text-[#A4FF42] transition-colors">
+                  privacy policy
+                </a>{" "}
+                for more information.
+              </p>
+            </div>
 
             <motion.form
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
               onSubmit={handleSubmit}
-              className="space-y-4"
+              className="space-y-3 lg:space-y-4"
             >
-              <div className="flex gap-3">
+              <div className="relative">
                 <Input
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-black border-2 border-[#A4FF42] h-14 text-white placeholder:text-gray-400 focus:border-[#A4FF42] focus:ring-2 focus:ring-[#A4FF42]/50 rounded-lg"
+                  className="h-12 lg:h-14 bg-black/50 border-[#A4FF42]/30 text-white placeholder:text-white/40 focus:border-[#A4FF42] pr-12 lg:pr-14"
                   required
                 />
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Button
-                    type="submit"
-                    className="h-14 w-14 bg-black border-2 border-[#A4FF42] text-white hover:bg-[#A4FF42] hover:text-black transition-all rounded-lg flex items-center justify-center shadow-[0_0_20px_rgba(164,255,66,0.2)]"
-                  >
-                    <Send className="w-5 h-5" />
-                  </Button>
-                </motion.div>
-              </div>
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
                 <Button
                   type="submit"
-                  className="w-full h-14 bg-[#A4FF42] text-black hover:bg-[#A4FF42]/90 font-bold text-lg rounded-lg transition-all shadow-[0_0_30px_rgba(164,255,66,0.3)]"
+                  size="icon"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 lg:h-10 lg:w-10 bg-[#A4FF42] text-black hover:bg-[#8FE635]"
                 >
-                  SUBSCRIBE
+                  <Send className="w-4 h-4" />
                 </Button>
-              </motion.div>
+              </div>
+              <Button
+                type="submit"
+                className="w-full h-12 lg:h-14 bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-base lg:text-lg"
+              >
+                SUBSCRIBE
+              </Button>
             </motion.form>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

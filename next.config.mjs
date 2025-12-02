@@ -5,6 +5,12 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'outlaw-games-website-1-production.up.railway.app',
+      },
+    ],
   },
 }
 
