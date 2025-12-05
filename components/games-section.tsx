@@ -8,7 +8,7 @@ import { ExternalLink } from "lucide-react"
 
 const games = [
   {
-    title: "OÜTIE Putt Putt",
+    title: "OÜTIE Putt",
     description:
       "Master the greens in this addictive mini-golf experience. Compete with friends and earn rewards as you sink impossible shots across beautifully designed courses.",
     video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cb8c25f8-5937-44cb-b929-979f042ea5f7_2-3jx6RrH5hrDVXtVtjMkZP8VrUJQrcr.mp4",

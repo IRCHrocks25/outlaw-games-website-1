@@ -33,7 +33,7 @@ export function ArticleContent({ article }: ArticleContentProps) {
         transition={{ duration: 0.6, delay: 0.1 }}
         className="mb-6"
       >
-        <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-[#A4FF42]/20 text-[#A4FF42] border border-[#A4FF42]/30">
+        <span className="inline-block px-4 py-2 rounded-full text-sm font-semibold bg-black text-[#A4FF42] border border-[#A4FF42]/30">
           {article.category}
         </span>
         <span className="ml-4 text-white/60 text-sm">

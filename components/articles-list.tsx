@@ -60,7 +60,7 @@ export function ArticlesList({ articles }: ArticlesListProps) {
                   <Link href={`/articles/${article.slug}`}>
                     <div className="bg-gray-50 rounded-2xl p-6 h-full flex flex-col hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-[#A4FF42]/30">
                       <div className="flex items-center justify-between mb-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#A4FF42]/20 text-[#A4FF42]">
+                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black text-[#A4FF42] border border-[#A4FF42]/30">
                           {article.category}
                         </span>
                         <span className="text-xs text-gray-500">

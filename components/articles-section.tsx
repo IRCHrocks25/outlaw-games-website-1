@@ -104,7 +104,7 @@ export function ArticlesSection({ articles }: ArticlesSectionProps) {
                     >
                       <motion.span
                         whileHover={{ scale: 1.1 }}
-                        className="px-3 py-1.5 rounded-full text-xs font-semibold bg-[#A4FF42]/20 text-[#A4FF42] border border-[#A4FF42]/30"
+                        className="px-3 py-1.5 rounded-full text-xs font-semibold bg-black text-[#A4FF42] border border-[#A4FF42]/30"
                       >
                         {article.category}
                       </motion.span>
@@ -169,7 +169,7 @@ export function ArticlesSection({ articles }: ArticlesSectionProps) {
           >
             <Button
               asChild
-              className="bg-[#A4FF42] text-black hover:bg-[#A4FF42]/90 font-bold px-8 py-6 text-lg rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(164,255,66,0.4)]"
+              className="bg-black text-[#A4FF42] border border-[#A4FF42]/30 hover:bg-[#A4FF42]/10 hover:border-[#A4FF42] font-bold px-8 py-6 text-lg rounded-lg transition-all duration-300 shadow-[0_0_10px_rgba(164,255,66,0.2)]"
             >
               <Link href="/articles">View All Articles</Link>
             </Button>
