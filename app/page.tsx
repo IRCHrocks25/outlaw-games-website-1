@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { AboutSection } from "@/components/about-section"
-import { WelcomeNews } from "@/components/welcome-news"
 import { GamesSection } from "@/components/games-section"
 import { MMORPGSection } from "@/components/mmorpg-section"
 import { RoadmapSection } from "@/components/roadmap-section"
@@ -20,7 +19,6 @@ export default async function Home() {
       <Hero />
       <AboutSection />
       <TechSection />
-      <WelcomeNews />
       <GamesSection />
       <MMORPGSection />
       <RoadmapSection />

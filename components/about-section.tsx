@@ -41,13 +41,13 @@ export function AboutSection() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-3xl lg:text-6xl font-bold text-white leading-tight"
             >
-              About <motion.span
+              What is  <motion.span
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 200 }}
                 className="text-[#A4FF42] inline-block"
               >
-                Outlaw.
+                Outlaw Games?
               </motion.span>
             </motion.h2>
 

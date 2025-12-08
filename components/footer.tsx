@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   main: [
@@ -10,8 +10,14 @@ const footerLinks = {
     { name: "Technology", href: "#technology" },
     { name: "Support", href: "/contact" },
   ],
-  external: [{ name: "Outlawgames.com", href: "https://outlawgames.app", external: true }],
-}
+  external: [
+    {
+      name: "Outlawgames.app",
+      href: "https://outlawgames.app",
+      external: true,
+    },
+  ],
+};
 
 export function Footer() {
   return (
@@ -19,8 +25,12 @@ export function Footer() {
       {/* Scrolling Text Banner */}
       <div className="py-8 overflow-hidden">
         <div className="flex whitespace-nowrap animate-scroll">
-          <span className="text-6xl lg:text-8xl font-bold text-white/10 mx-8">OUTLAWS POWERED. GAMES PERFECTED.</span>
-          <span className="text-6xl lg:text-8xl font-bold text-white/10 mx-8">OUTLAWS POWERED. GAMES PERFECTED.</span>
+          <span className="text-6xl lg:text-8xl font-bold text-white/10 mx-8">
+            OUTLAWS POWERED. GAMES PERFECTED.
+          </span>
+          <span className="text-6xl lg:text-8xl font-bold text-white/10 mx-8">
+            OUTLAWS POWERED. GAMES PERFECTED.
+          </span>
         </div>
       </div>
 
@@ -87,11 +97,12 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-white/20">
           <div className="flex justify-center">
             <p className="text-white/60 text-sm">
-              © 2025 - {new Date().getFullYear()} Outlaw Games. All rights reserved.
+              © 2025 - {new Date().getFullYear()} Outlaw Games. All rights
+              reserved.
             </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
