@@ -436,7 +436,7 @@ export function PreLaunchSection() {
                 className="relative bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-10 py-7 overflow-hidden group"
               >
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.outlawgames.app"
+                  href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative z-10"

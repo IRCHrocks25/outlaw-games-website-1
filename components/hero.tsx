@@ -165,7 +165,7 @@ export function Hero() {
                 className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-8 py-6 shadow-[0_0_30px_rgba(164,255,66,0.3)]"
               >
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.outlawgames.app"
+                  href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
