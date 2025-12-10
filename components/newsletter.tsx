@@ -21,7 +21,7 @@ export function Newsletter() {
   }
 
   return (
-    <section ref={ref} className="py-12 lg:py-24 bg-black relative overflow-hidden">
+    <section id="newsletter" ref={ref} className="py-12 lg:py-24 bg-black relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#A4FF42]/10 rounded-full blur-[150px]" />
       </div>

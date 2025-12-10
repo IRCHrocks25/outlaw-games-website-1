@@ -1,0 +1,498 @@
+"use client"
+
+import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Sparkles, Zap, Gamepad2 } from "lucide-react"
+
+const launchFeatures = [
+  {
+    title: "Proof of Play Rewards",
+    description: "Rewards are tied directly to verified gameplay activity — not speculation or pay-to-win mechanics.",
+    icon: Sparkles,
+  },
+  {
+    title: "Zero Upfront Costs",
+    description: "No NFTs, no token purchases, and no required investment to start playing.",
+    icon: Zap,
+  },
+  {
+    title: "Mini-Games First",
+    description: "Launch begins with classic, skill-based mini-games designed for fast, fair play.",
+    icon: Gamepad2,
+  },
+]
+
+export function PreLaunchSection() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50])
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3])
+
+  return (
+    <section ref={containerRef} className="py-12 lg:py-24 bg-black relative overflow-hidden">
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(rgba(164,255,66,0.03) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(164,255,66,0.03) 1px, transparent 1px)
+            `,
+            backgroundSize: "50px 50px",
+          }}
+        />
+      </div>
+
+      {/* Subtle Geometric Shapes */}
+      <div className="absolute inset-0 pointer-events-none opacity-10">
+        <motion.div
+          animate={{
+            rotate: [0, 360],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute top-20 left-10 w-32 h-32 border border-[#A4FF42]/20 rounded-full"
+        />
+        <motion.div
+          animate={{
+            rotate: [360, 0],
+            scale: [1, 0.9, 1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "linear",
+          }}
+          className="absolute bottom-20 right-10 w-24 h-24 border border-[#A4FF42]/15 rounded-lg rotate-45"
+        />
+        <motion.div
+          animate={{
+            x: [0, 30, 0],
+            y: [0, -20, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/2 right-1/4 w-16 h-16 border border-[#A4FF42]/10 rounded-full"
+        />
+      </div>
+
+      {/* Animated Background Effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          style={{ y, opacity }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#A4FF42]/10 rounded-full blur-[150px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.15, 0.1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-[#A4FF42]/5 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.08, 0.12, 0.08],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+          className="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-[#A4FF42]/5 rounded-full blur-[100px]"
+        />
+      </div>
+
+      {/* Subtle Mesh Gradient Overlay */}
+      <div className="absolute inset-0 pointer-events-none opacity-30">
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(circle at 20% 50%, rgba(164,255,66,0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(164,255,66,0.03) 0%, transparent 50%),
+              radial-gradient(circle at 40% 20%, rgba(164,255,66,0.04) 0%, transparent 50%)
+            `,
+          }}
+        />
+      </div>
+
+      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          {/* PRE-LAUNCH Badge with Glow Animation */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: -20 }}
+            animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+            transition={{
+              duration: 0.6,
+              delay: 0.1,
+              type: "spring",
+              stiffness: 200,
+              damping: 15,
+            }}
+            className="mb-8 inline-block"
+          >
+            <motion.div
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(164,255,66,0.3)",
+                  "0 0 40px rgba(164,255,66,0.5)",
+                  "0 0 20px rgba(164,255,66,0.3)",
+                ],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+              className="inline-block rounded-full"
+            >
+              <Badge className="bg-[#A4FF42]/20 text-[#A4FF42] border-[#A4FF42]/40 px-5 py-2 text-sm font-bold uppercase tracking-wider relative overflow-hidden">
+                <motion.span
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "linear",
+                  }}
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                  style={{ backgroundSize: "200% 100%" }}
+                />
+                <span className="relative z-10">PRE-LAUNCH</span>
+              </Badge>
+            </motion.div>
+          </motion.div>
+
+          {/* Headline with Staggered Animation */}
+          <motion.h2
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6"
+          >
+            <motion.span
+              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="block"
+            >
+              Outlaw Wallet Is
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8, y: 30 }}
+              animate={isInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                type: "spring",
+                stiffness: 150,
+                damping: 12,
+              }}
+              className="block text-[#A4FF42] relative inline-block"
+            >
+              <motion.span
+                animate={{
+                  textShadow: [
+                    "0 0 20px rgba(164,255,66,0.5)",
+                    "0 0 40px rgba(164,255,66,0.8)",
+                    "0 0 20px rgba(164,255,66,0.5)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+              >
+                Launching Soon
+              </motion.span>
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
+              transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="block"
+            >
+              on Google Play
+            </motion.span>
+          </motion.h2>
+
+          {/* Description with Word-by-Word Animation */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="space-y-4 mb-12"
+          >
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base lg:text-lg text-white/70 leading-relaxed"
+            >
+              Play mini-games and earn on-chain rewards through{" "}
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  duration: 0.6,
+                  delay: 1.1,
+                  type: "spring",
+                  stiffness: 200,
+                }}
+                className="text-[#A4FF42] font-semibold inline-block"
+              >
+                Proof of Play
+              </motion.span>{" "}
+              — reward real gameplay with zero upfront investment.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-base lg:text-lg text-white/70 leading-relaxed"
+            >
+              A new way to experience play-to-earn without NFTs, token purchases, or complicated onboarding. Built on{" "}
+              <motion.span
+                whileHover={{ scale: 1.05, color: "#A4FF42" }}
+                className="font-semibold transition-colors cursor-default"
+              >
+                Solana
+              </motion.span>{" "}
+              for everyday players.
+            </motion.p>
+          </motion.div>
+        </motion.div>
+
+        {/* What to Expect at Launch */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16"
+        >
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
+            className="text-2xl lg:text-3xl font-bold text-white text-center mb-12"
+          >
+            What to Expect at Launch
+          </motion.h3>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {launchFeatures.map((feature, index) => {
+              const Icon = feature.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50, scale: 0.9, rotateX: -15 }}
+                  animate={isInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : {}}
+                  transition={{
+                    duration: 0.8,
+                    delay: 1.6 + index * 0.2,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -8,
+                    borderColor: "rgba(164,255,66,0.6)",
+                    boxShadow: "0 0 60px rgba(164,255,66,0.3)",
+                  }}
+                  className="relative p-6 lg:p-8 rounded-2xl border border-[#A4FF42]/20 bg-[#A4FF42]/5 backdrop-blur-xl overflow-hidden shadow-[0_0_40px_rgba(164,255,66,0.1)] group cursor-pointer"
+                >
+                  {/* Animated Background Gradient */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 bg-gradient-to-br from-[#A4FF42]/10 via-transparent to-transparent pointer-events-none"
+                  />
+                  <motion.div
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%"],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "reverse",
+                      ease: "linear",
+                    }}
+                    className="absolute inset-0 bg-gradient-to-br from-[#A4FF42]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ backgroundSize: "200% 200%" }}
+                  />
+
+                  <div className="relative z-10">
+                    <motion.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={isInView ? { scale: 1, rotate: 0 } : {}}
+                      transition={{
+                        duration: 0.6,
+                        delay: 1.7 + index * 0.2,
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 15,
+                      }}
+                      className="flex items-start gap-4 mb-4"
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.2, rotate: 360 }}
+                        transition={{ duration: 0.5, type: "spring" }}
+                        className="w-12 h-12 rounded-xl bg-[#A4FF42] flex items-center justify-center flex-shrink-0 shadow-[0_0_20px_rgba(164,255,66,0.5)]"
+                      >
+                        <Icon className="w-6 h-6 text-black" />
+                      </motion.div>
+                      <motion.h4
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.6, delay: 1.8 + index * 0.2 }}
+                        className="text-xl font-semibold text-white group-hover:text-[#A4FF42] transition-colors"
+                      >
+                        {feature.title}
+                      </motion.h4>
+                    </motion.div>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={isInView ? { opacity: 1 } : {}}
+                      transition={{ duration: 0.6, delay: 1.9 + index * 0.2 }}
+                      className="text-white/70 text-sm lg:text-base leading-relaxed"
+                    >
+                      {feature.description}
+                    </motion.p>
+                  </div>
+
+                  {/* Shine Effect on Hover */}
+                  <motion.div
+                    initial={{ x: "-100%", opacity: 0 }}
+                    whileHover={{ x: "100%", opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
+                  />
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
+
+        {/* CTA with Enhanced Animations */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
+        >
+          <motion.div
+            initial={{ scale: 0.9 }}
+            animate={isInView ? { scale: 1 } : {}}
+            transition={{
+              duration: 0.6,
+              delay: 2.3,
+              type: "spring",
+              stiffness: 150,
+            }}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="inline-block"
+          >
+            <motion.div
+              animate={{
+                boxShadow: [
+                  "0 0 30px rgba(164,255,66,0.4)",
+                  "0 0 50px rgba(164,255,66,0.6)",
+                  "0 0 30px rgba(164,255,66,0.4)",
+                ],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "easeInOut",
+              }}
+              className="rounded-lg"
+            >
+              <Button
+                asChild
+                size="lg"
+                className="relative bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-10 py-7 overflow-hidden group"
+              >
+                <a
+                  href="#newsletter"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document.getElementById("newsletter")?.scrollIntoView({ behavior: "smooth" })
+                  }}
+                  className="relative z-10"
+                >
+                  <motion.span
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "linear",
+                    }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                    style={{ backgroundSize: "200% 100%" }}
+                  />
+                  <span className="relative z-10 flex items-center gap-2">
+                    Follow Launch Updates
+                    <motion.span
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      →
+                    </motion.span>
+                  </span>
+                </a>
+              </Button>
+            </motion.div>
+          </motion.div>
+
+          {/* Optional micro-line with fade animation */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 text-sm text-white/50"
+          >
+            Be the first to know when the Outlaw Wallet becomes available on Google Play.
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
