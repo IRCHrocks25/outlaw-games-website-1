@@ -184,11 +184,11 @@ export function Hero() {
                 className="bg-transparent border-2 border-[#A4FF42]/50 text-white hover:bg-[#A4FF42]/20 hover:border-[#A4FF42] font-semibold text-lg px-8 py-6 backdrop-blur-md shadow-[0_0_20px_rgba(164,255,66,0.2)] hover:shadow-[0_0_30px_rgba(164,255,66,0.4)] transition-all duration-300"
               >
                 <a
-                  href="https://linktr.ee/outlawgamefi"
+                  href="https://app.outlaw.kuki.agency/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Explore Games
+                  Play Now
                 </a>
               </Button>
             </motion.div>
