@@ -158,16 +158,18 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="w-full sm:w-auto"
             >
               <Button
                 asChild
                 size="lg"
-                className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-8 py-6 shadow-[0_0_30px_rgba(164,255,66,0.3)]"
+                className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto transition-all duration-300"
               >
                 <a
                   href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="whitespace-nowrap"
                 >
                   Get It on Google Play
                 </a>
@@ -177,20 +179,29 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="relative w-full sm:w-auto"
             >
               <Button
                 asChild
                 size="lg"
-                className="bg-transparent border-2 border-[#A4FF42]/50 text-white hover:bg-[#A4FF42]/20 hover:border-[#A4FF42] font-semibold text-lg px-8 py-6 backdrop-blur-md shadow-[0_0_20px_rgba(164,255,66,0.2)] hover:shadow-[0_0_30px_rgba(164,255,66,0.4)] transition-all duration-300"
+                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
               >
                 <a
                   href="https://app.outlaw.kuki.agency/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="relative z-10 whitespace-nowrap"
+                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)" }}
                 >
-                  Play Now
+                  PLAY NOW
                 </a>
               </Button>
+              {/* Glossy overlay for convex effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent rounded-full pointer-events-none"
+                initial={{ opacity: 0.8 }}
+                whileHover={{ opacity: 1 }}
+              />
             </motion.div>
           </motion.div>
         </motion.div>

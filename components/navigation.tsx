@@ -1,12 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
 
 type NavItem = 
   | { name: string; hash: string; href?: never }
@@ -18,12 +25,16 @@ const navItems: NavItem[] = [
   { name: "Technology", hash: "#technology" }, // Maps to id="technology" in TechSection
   { name: "Articles", href: "/articles" },     // Maps to /articles route
   { name: "Support", href: "/support" },        // Maps to /support page
+  { name: "Contact", href: "/contact" },        // Maps to /contact page
 ]
 
 export function Navigation() {
   const pathname = usePathname()
+  const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -95,20 +106,6 @@ export function Navigation() {
                 />
               </a>
               
-              {/* Play Now Button */}
-              <Button
-                asChild
-                className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold px-4 py-2 h-10 text-sm whitespace-nowrap"
-              >
-                <a
-                  href="https://app.outlaw.kuki.agency/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Play Now
-                </a>
-              </Button>
-              
               {/* iOS - Coming Soon */}
               <div className="relative group/ios">
                 <div className="relative">
@@ -137,12 +134,27 @@ export function Navigation() {
               </div>
             </div>
             
-            <button className="text-white/80 hover:text-white transition-colors">
+            <Button
+              asChild
+              className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm px-6 py-2 rounded-full border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_2px_8px_rgba(255,255,255,0.3),inset_0_-2px_8px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden whitespace-nowrap"
+            >
+              <a
+                href="https://app.outlaw.kuki.agency/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-10"
+                style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)" }}
+              >
+                PLAY NOW
+              </a>
+            </Button>
+            <button 
+              onClick={() => setIsSearchOpen(true)}
+              className="text-white/80 hover:text-white transition-colors"
+              aria-label="Search"
+            >
               <Search className="w-5 h-5" />
             </button>
-            <Button asChild className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold px-6">
-              <Link href="/contact">Contact</Link>
-            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -176,6 +188,18 @@ export function Navigation() {
                 )
               })}
               
+              {/* Mobile Search Button */}
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false)
+                  setIsSearchOpen(true)
+                }}
+                className="flex items-center gap-2 text-white/80 hover:text-[#A4FF42] transition-colors text-lg font-medium w-full"
+              >
+                <Search className="w-5 h-5" />
+                Search
+              </button>
+              
               {/* Mobile App Store Icons */}
               <div className="flex items-center gap-3 pt-2">
                 {/* Android - Active */}
@@ -195,21 +219,6 @@ export function Navigation() {
                     className="h-10 w-full object-contain opacity-90 active:opacity-100 transition-opacity"
                   />
                 </a>
-                
-                {/* Play Now Button */}
-                <Button
-                  asChild
-                  className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold px-4 py-2 h-10 text-sm whitespace-nowrap flex-1"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <a
-                    href="https://app.outlaw.kuki.agency/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Play Now
-                  </a>
-                </Button>
                 
                 {/* iOS - Coming Soon */}
                 <div className="flex-1 relative">
@@ -232,13 +241,66 @@ export function Navigation() {
                 </div>
               </div>
               
-              <Button asChild className="w-full bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold mt-4">
-                <Link href="/contact">Contact</Link>
+              <Button
+                asChild
+                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm px-6 py-3 w-full rounded-full border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_2px_8px_rgba(255,255,255,0.3),inset_0_-2px_8px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden mt-4"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <a
+                  href="https://app.outlaw.kuki.agency/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10"
+                  style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)" }}
+                >
+                  PLAY NOW
+                </a>
               </Button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Search Dialog */}
+      <Dialog open={isSearchOpen} onOpenChange={setIsSearchOpen}>
+        <DialogContent className="sm:max-w-[500px] bg-black/95 border-white/10">
+          <DialogHeader>
+            <DialogTitle className="text-white">Search</DialogTitle>
+          </DialogHeader>
+          <div className="flex gap-2 mt-4">
+            <div className="relative flex-1">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/50" />
+              <Input
+                type="text"
+                placeholder="Search articles..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" && searchQuery.trim()) {
+                    router.push(`/articles?search=${encodeURIComponent(searchQuery.trim())}`)
+                    setIsSearchOpen(false)
+                    setSearchQuery("")
+                  }
+                }}
+                className="pl-10 bg-black/50 border-white/20 text-white placeholder:text-white/50 focus:border-[#A4FF42]"
+                autoFocus
+              />
+            </div>
+            <Button
+              onClick={() => {
+                if (searchQuery.trim()) {
+                  router.push(`/articles?search=${encodeURIComponent(searchQuery.trim())}`)
+                  setIsSearchOpen(false)
+                  setSearchQuery("")
+                }
+              }}
+              className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold"
+            >
+              Search
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </motion.header>
   )
 }
