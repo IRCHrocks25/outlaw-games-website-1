@@ -29,8 +29,7 @@ export default function SupportSubdomainPage() {
                 If you need assistance, please reach out to us through the following channels:
               </p>
               <ul className="list-disc pl-6 mb-4 space-y-2">
-                <li><strong>Email:</strong> <a href="mailto:admin@outlawgames.app" className="text-[#A4FF42] hover:underline">admin@outlawgames.app</a></li>
-                <li><strong>Physical Address:</strong> Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, United Arab Emirates</li>
+                <li><strong>Email:</strong> <a href="mailto:info@otlwgame.com" className="text-[#A4FF42] hover:underline">info@otlwgame.com</a></li>
                 <li><strong>Live Chat:</strong> Click the chat icon in the bottom right corner.</li>
               </ul>
               <p className="mb-4">
@@ -93,7 +92,7 @@ export default function SupportSubdomainPage() {
                 <h3 className="text-xl font-semibold text-black mt-6 mb-4">Technical Issues</h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="mb-2"><strong>The game is crashing. What should I do?</strong> Ensure your device meets the system requirements and has the latest app update. Restart the app and your device. If the issue persists, contact us at <a href="mailto:admin@outlawgames.app" className="text-[#A4FF42] hover:underline">admin@outlawgames.app</a>.</p>
+                    <p className="mb-2"><strong>The game is crashing. What should I do?</strong> Ensure your device meets the system requirements and has the latest app update. Restart the app and your device. If the issue persists, contact us at <a href="mailto:info@otlwgame.com" className="text-[#A4FF42] hover:underline">info@otlwgame.com</a>.</p>
                   </div>
                   <div>
                     <p className="mb-2"><strong>I'm not receiving my $OUTLAW tokens. Why?</strong> Check your internet connection and ensure the app is updated. Tokens are paid out instantly via Solana, so delays may indicate a network issue. Contact support if the problem continues.</p>
@@ -114,7 +113,7 @@ export default function SupportSubdomainPage() {
                     <p className="mb-2"><strong>How are my tokens secured?</strong> $OUTLAW tokens are secured on the Solana blockchain, ensuring transparency and immutability. Your account is protected by your email password, and we recommend enabling two-factor authentication if available.</p>
                   </div>
                   <div>
-                    <p className="mb-2"><strong>What should I do if my account is hacked?</strong> Immediately contact us at <a href="mailto:admin@outlawgames.app" className="text-[#A4FF42] hover:underline">admin@outlawgames.app</a> and change your password. Report any unauthorized activity for investigation.</p>
+                    <p className="mb-2"><strong>What should I do if my account is hacked?</strong> Immediately contact us at <a href="mailto:info@otlwgame.com" className="text-[#A4FF42] hover:underline">info@otlwgame.com</a> and change your password. Report any unauthorized activity for investigation.</p>
                   </div>
                 </div>
               </div>

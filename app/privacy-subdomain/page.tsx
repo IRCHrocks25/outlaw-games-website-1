@@ -111,7 +111,7 @@ export default function PrivacySubdomainPage() {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold text-black mt-8 mb-4">9. Contact Us</h2>
               <p className="mb-4">
-                Got questions about your privacy? Email us at <a href="mailto:admin@outlawgames.app" className="text-[#A4FF42] hover:underline">admin@outlawgames.app</a>.
+                Got questions about your privacy? Email us at <a href="mailto:info@otlwgame.com" className="text-[#A4FF42] hover:underline">info@otlwgame.com</a>.
               </p>
             </section>
           </div>

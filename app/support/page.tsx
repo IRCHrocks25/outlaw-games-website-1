@@ -10,33 +10,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
-import { Mail, MessageCircle, MapPin, HelpCircle, Shield } from "lucide-react"
+import { HelpCircle, Shield } from "lucide-react"
 import Link from "next/link"
-
-const contactMethods = [
-  {
-    icon: Mail,
-    title: "Email Support",
-    description: "Get help via email",
-    contact: "support@outlawgames.com",
-    href: "mailto:support@outlawgames.com",
-  },
-  {
-    icon: MessageCircle,
-    title: "Live Chat",
-    description: "Chat with us in real-time",
-    contact: "Available 24/7",
-    href: "#chat",
-    action: "Open Chat",
-  },
-  {
-    icon: MapPin,
-    title: "Physical Address",
-    description: "Visit us or send mail",
-    contact: "Outlaw Games LLC\n123 Blockchain Avenue\nSan Francisco, CA 94102\nUnited States",
-    href: null,
-  },
-]
 
 const faqCategories = [
   {
@@ -238,7 +213,7 @@ export default function SupportPage() {
                 asChild
                 className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold px-8 py-6 text-lg"
               >
-                <a href="mailto:support@outlawgames.com">Email Support</a>
+                <a href="mailto:info@otlwgame.com">Email Support</a>
               </Button>
               <Button
                 asChild
@@ -248,63 +223,6 @@ export default function SupportPage() {
               </Button>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Methods Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl lg:text-4xl font-bold text-black">Get in Touch</h2>
-            <p className="mt-4 text-lg text-black/60 max-w-2xl mx-auto">
-              Multiple ways to reach us. Choose what works best for you.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {contactMethods.map((method, index) => (
-              <motion.div
-                key={method.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-8 bg-gray-50 rounded-2xl text-center hover:shadow-lg transition-shadow"
-              >
-                <div className="w-16 h-16 mx-auto bg-[#A4FF42]/10 rounded-xl flex items-center justify-center mb-4">
-                  <method.icon className="w-8 h-8 text-[#A4FF42]" />
-                </div>
-                <h3 className="text-xl font-semibold text-black mb-2">{method.title}</h3>
-                <p className="text-black/60 mb-4">{method.description}</p>
-                {method.href && method.action ? (
-                  <Button
-                    asChild
-                    className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold"
-                    onClick={() => {
-                      // Scroll to chat widget if it exists
-                      const chatButton = document.querySelector('[aria-label="Open chat"]') as HTMLElement
-                      if (chatButton) chatButton.click()
-                    }}
-                  >
-                    <a href={method.href}>{method.action}</a>
-                  </Button>
-                ) : method.href ? (
-                  <a
-                    href={method.href}
-                    className="inline-block text-[#A4FF42] hover:underline font-medium break-all"
-                  >
-                    {method.contact}
-                  </a>
-                ) : (
-                  <p className="text-black/80 whitespace-pre-line font-medium">{method.contact}</p>
-                )}
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -321,7 +239,7 @@ export default function SupportPage() {
             <p className="mt-4 text-lg text-black/60">
               Quick answers to common questions. Can't find what you're looking for?{" "}
               <a
-                href="mailto:support@outlawgames.com"
+                href="mailto:info@otlwgame.com"
                 className="text-[#A4FF42] hover:underline font-medium"
               >
                 Contact us

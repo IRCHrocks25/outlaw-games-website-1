@@ -16,19 +16,19 @@ const contactOptions = [
     icon: Mail,
     title: "General Inquiries",
     description: "For general questions about Outlaw Games",
-    email: "hello@outlawgames.com",
+    email: "info@otlwgame.com",
   },
   {
     icon: MessageSquare,
     title: "Press & Media",
     description: "Media inquiries and press requests",
-    email: "press@outlawgames.com",
+    email: "info@otlwgame.com",
   },
   {
     icon: Users,
     title: "Partnerships",
     description: "Business development and collaborations",
-    email: "partners@outlawgames.com",
+    email: "info@otlwgame.com",
   },
 ]
 

@@ -20,8 +20,8 @@ export default async function Home() {
       <Hero />
       <PreLaunchSection />
       <AboutSection />
-      <TechSection />
       <GamesSection />
+      <TechSection />
       <MMORPGSection />
       <RoadmapSection />
       <ArticlesSection articles={articles} />
