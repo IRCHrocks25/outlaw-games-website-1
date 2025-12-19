@@ -95,6 +95,20 @@ export function Navigation() {
                 />
               </a>
               
+              {/* Play Now Button */}
+              <Button
+                asChild
+                className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold px-4 py-2 h-10 text-sm whitespace-nowrap"
+              >
+                <a
+                  href="https://app.outlaw.kuki.agency/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Play Now
+                </a>
+              </Button>
+              
               {/* iOS - Coming Soon */}
               <div className="relative group/ios">
                 <div className="relative">
@@ -181,6 +195,21 @@ export function Navigation() {
                     className="h-10 w-full object-contain opacity-90 active:opacity-100 transition-opacity"
                   />
                 </a>
+                
+                {/* Play Now Button */}
+                <Button
+                  asChild
+                  className="bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold px-4 py-2 h-10 text-sm whitespace-nowrap flex-1"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <a
+                    href="https://app.outlaw.kuki.agency/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Play Now
+                  </a>
+                </Button>
                 
                 {/* iOS - Coming Soon */}
                 <div className="flex-1 relative">
