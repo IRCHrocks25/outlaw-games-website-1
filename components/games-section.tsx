@@ -146,15 +146,11 @@ export function GamesSection() {
                   </p>
 
                   <a
-<<<<<<< HEAD
-                    href={game.title === "OÜTIE Putt" ? "https://app.outlaw.kuki.agency/" : "https://www.outlawgames.app"}
-=======
                     href={
                       game.title === "OÜTIE Putt"
                         ? "https://app.outlaw.kuki.agency/"
                         : "https://www.outlawgames.app"
                     }
->>>>>>> e12a13d01e0389f0b12922b49a42ef287963e6a6
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 lg:mt-6 w-full inline-flex items-center justify-center px-3 py-2 lg:px-4 lg:py-3 rounded-md border border-[#A4FF42] text-[#A4FF42] font-semibold text-sm transition-all duration-300 hover:bg-[#A4FF42] hover:text-black"
