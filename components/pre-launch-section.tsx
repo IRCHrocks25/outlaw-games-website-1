@@ -1,43 +1,49 @@
-"use client"
+"use client";
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Sparkles, Zap, Gamepad2 } from "lucide-react"
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles, Zap, Gamepad2 } from "lucide-react";
 
 const launchFeatures = [
   {
     title: "Instant On-Chain Rewards",
-    description: "Earn cryptocurrency instantly through verified gameplay. No waiting periods, no delays — rewards are automatic and fully owned by you.",
+    description:
+      "Earn cryptocurrency instantly through verified gameplay. No waiting periods, no delays — rewards are automatic and fully owned by you.",
     icon: Sparkles,
   },
   {
     title: "Zero Financial Entry Barrier",
-    description: "No NFTs to buy, no token pre-purchases, no mandatory investments. Simply download and start playing.",
+    description:
+      "No NFTs to buy, no token pre-purchases, no mandatory investments. Simply download and start playing.",
     icon: Zap,
   },
   {
     title: "Real-Time Gameplay Verification",
-    description: "The first working Proof of Play system that verifies your gameplay in real-time and rewards you instantly.",
+    description:
+      "The first working Proof of Play system that verifies your gameplay in real-time and rewards you instantly.",
     icon: Gamepad2,
   },
-]
+];
 
 export function PreLaunchSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const containerRef = useRef<HTMLDivElement>(null)
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
-  })
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3])
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.3, 1, 0.3]);
 
   return (
-    <section ref={containerRef} className="py-12 lg:py-24 bg-black relative overflow-hidden">
+    <section
+      ref={containerRef}
+      className="py-12 lg:py-24 bg-black relative overflow-hidden"
+    >
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div
@@ -138,7 +144,10 @@ export function PreLaunchSection() {
         />
       </div>
 
-      <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -200,8 +209,14 @@ export function PreLaunchSection() {
           >
             <motion.span
               initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-              animate={isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              animate={
+                isInView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}
+              }
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
               Outlaw Games{" "}
               <motion.span
@@ -247,7 +262,11 @@ export function PreLaunchSection() {
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.9,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="text-base lg:text-lg text-white/70 leading-relaxed"
             >
               The first platform in the world to deliver a working{" "}
@@ -264,23 +283,30 @@ export function PreLaunchSection() {
               >
                 Proof of Play
               </motion.span>{" "}
-              system — earn cryptocurrency instantly through verified gameplay with zero upfront investment.
+              system — earn cryptocurrency instantly through verified gameplay
+              with zero upfront investment.
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 1.2,
+                ease: [0.16, 1, 0.3, 1],
+              }}
               className="text-base lg:text-lg text-white/70 leading-relaxed"
             >
-              No NFTs to buy, no token pre-purchases, no mandatory investments. Simply play and earn{" "}
+              No NFTs to buy, no token pre-purchases, no mandatory investments.
+              Simply play and earn{" "}
               <motion.span
                 whileHover={{ scale: 1.05, color: "#A4FF42" }}
                 className="font-semibold transition-colors cursor-default"
               >
                 $OUTLAW
               </motion.span>{" "}
-              instantly. The first true Play-to-Earn system available to mainstream users.
+              instantly. The first true Play-to-Earn system available to
+              mainstream users.
             </motion.p>
           </motion.div>
         </motion.div>
@@ -303,12 +329,14 @@ export function PreLaunchSection() {
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {launchFeatures.map((feature, index) => {
-              const Icon = feature.icon
+              const Icon = feature.icon;
               return (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50, scale: 0.9, rotateX: -15 }}
-                  animate={isInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : {}}
+                  animate={
+                    isInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : {}
+                  }
                   transition={{
                     duration: 0.8,
                     delay: 1.6 + index * 0.2,
@@ -390,7 +418,7 @@ export function PreLaunchSection() {
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none"
                   />
                 </motion.div>
-              )
+              );
             })}
           </div>
         </motion.div>
@@ -403,71 +431,110 @@ export function PreLaunchSection() {
           className="text-center"
         >
           <motion.div
-            initial={{ scale: 0.9 }}
-            animate={isInView ? { scale: 1 } : {}}
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
             transition={{
-              duration: 0.6,
+              duration: 0.8,
               delay: 2.3,
               type: "spring",
               stiffness: 150,
             }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-block"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
+            {/* Get It on Google Play Button */}
             <motion.div
-              animate={{
-                boxShadow: [
-                  "0 0 30px rgba(164,255,66,0.4)",
-                  "0 0 50px rgba(164,255,66,0.6)",
-                  "0 0 30px rgba(164,255,66,0.4)",
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-              className="rounded-lg"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="w-full sm:w-auto"
+            >
+              <motion.div
+                animate={{
+                  boxShadow: [
+                    "0 0 30px rgba(164,255,66,0.4)",
+                    "0 0 50px rgba(164,255,66,0.6)",
+                    "0 0 30px rgba(164,255,66,0.4)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+                className="rounded-lg"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="relative bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-10 py-7 overflow-hidden group w-full sm:w-auto"
+                >
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10"
+                  >
+                    <motion.span
+                      animate={{
+                        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "linear",
+                      }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      style={{ backgroundSize: "200% 100%" }}
+                    />
+                    <span className="relative z-10 flex items-center gap-2">
+                      Get It on Google Play
+                      <motion.span
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        →
+                      </motion.span>
+                    </span>
+                  </a>
+                </Button>
+              </motion.div>
+            </motion.div>
+
+            {/* PLAY NOW Button */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="relative w-full sm:w-auto"
             >
               <Button
                 asChild
                 size="lg"
-                className="relative bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-10 py-7 overflow-hidden group"
+                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
               >
                 <a
-                  href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
+                  href="https://app.outlaw.kuki.agency/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative z-10"
+                  className="relative z-10 whitespace-nowrap"
+                  style={{
+                    textShadow:
+                      "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)",
+                  }}
                 >
-                  <motion.span
-                    animate={{
-                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "linear",
-                    }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    style={{ backgroundSize: "200% 100%" }}
-                  />
-                  <span className="relative z-10 flex items-center gap-2">
-                    Get It on Google Play
-                    <motion.span
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      →
-                    </motion.span>
-                  </span>
+                  PLAY NOW
                 </a>
               </Button>
+              {/* Glossy overlay for convex effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent rounded-full pointer-events-none"
+                initial={{ opacity: 0.8 }}
+                whileHover={{ opacity: 1 }}
+              />
             </motion.div>
           </motion.div>
 
@@ -478,11 +545,11 @@ export function PreLaunchSection() {
             transition={{ duration: 0.8, delay: 2.5, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 text-sm text-white/50"
           >
-            Download now and start earning $OUTLAW instantly through verified gameplay.
+            Download now and start earning $OUTLAW instantly through verified
+            gameplay.
           </motion.p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
-

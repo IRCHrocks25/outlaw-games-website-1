@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import Image from "next/image"
-import { ExternalLink } from "lucide-react"
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 const games = [
   {
     title: "OÜTIE Putt",
     description:
       "Master the greens in this addictive mini-golf experience. Compete with friends and earn rewards as you sink impossible shots across beautifully designed courses.",
-    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cb8c25f8-5937-44cb-b929-979f042ea5f7_2-3jx6RrH5hrDVXtVtjMkZP8VrUJQrcr.mp4",
+    video:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cb8c25f8-5937-44cb-b929-979f042ea5f7_2-3jx6RrH5hrDVXtVtjMkZP8VrUJQrcr.mp4",
     image: null,
     status: "coming-soon",
   },
@@ -20,7 +21,8 @@ const games = [
     description:
       "Rack 'em up in this sleek 8-ball pool game. Challenge players worldwide, climb the leaderboards, and prove you're the ultimate pool shark.",
     image: null,
-    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2edd2660-33c4-4ff3-aaaa-279db8efae75-sIRlP21jqPSH2bcRDJSIYceZBPNG9f.mp4",
+    video:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2edd2660-33c4-4ff3-aaaa-279db8efae75-sIRlP21jqPSH2bcRDJSIYceZBPNG9f.mp4",
     status: "coming-soon",
   },
   {
@@ -28,17 +30,22 @@ const games = [
     description:
       "The timeless game of strategy, reimagined. Battle opponents in ranked matches, solve daily puzzles, and earn your place among the grandmasters.",
     image: null,
-    video: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dc18ed30-b299-4dbd-9054-bbf8dd46cc3c-zoa732FowQAuvphGUZQV1da3gGhpMU.mp4",
+    video:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dc18ed30-b299-4dbd-9054-bbf8dd46cc3c-zoa732FowQAuvphGUZQV1da3gGhpMU.mp4",
     status: "coming-soon",
   },
-]
+];
 
 export function GamesSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="games" ref={ref} className="py-12 lg:py-24 bg-black relative overflow-hidden">
+    <section
+      id="games"
+      ref={ref}
+      className="py-12 lg:py-24 bg-black relative overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-[#A4FF42]/5 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-[#A4FF42]/3 rounded-full blur-[100px]" />
@@ -119,26 +126,41 @@ export function GamesSection() {
                   </div>
                   <div className="absolute top-4 right-4">
                     <div className="px-3 py-1 bg-[#A4FF42]/20 backdrop-blur-md rounded-full border border-[#A4FF42]/30">
-                      <span className="text-[#A4FF42] text-xs font-bold">OÜTIE</span>
+                      <span className="text-[#A4FF42] text-xs font-bold">
+                        OÜTIE
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 <div className="p-4 lg:p-6">
                   <div className="flex items-center gap-4">
-                    <h3 className="text-lg lg:text-xl font-bold text-white">{game.title}</h3>
+                    <h3 className="text-lg lg:text-xl font-bold text-white">
+                      {game.title}
+                    </h3>
                     <div className="flex-1 h-px bg-gradient-to-r from-[#A4FF42]/50 to-transparent" />
                   </div>
 
-                  <p className="hidden lg:block mt-3 text-white/50 leading-relaxed text-sm">{game.description}</p>
+                  <p className="hidden lg:block mt-3 text-white/50 leading-relaxed text-sm">
+                    {game.description}
+                  </p>
 
                   <a
+<<<<<<< HEAD
                     href={game.title === "OÜTIE Putt" ? "https://app.outlaw.kuki.agency/" : "https://www.outlawgames.app"}
+=======
+                    href={
+                      game.title === "OÜTIE Putt"
+                        ? "https://app.outlaw.kuki.agency/"
+                        : "https://www.outlawgames.app"
+                    }
+>>>>>>> e12a13d01e0389f0b12922b49a42ef287963e6a6
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-4 lg:mt-6 w-full inline-flex items-center justify-center px-3 py-2 lg:px-4 lg:py-3 rounded-md border border-[#A4FF42] text-[#A4FF42] font-semibold text-sm transition-all duration-300 hover:bg-[#A4FF42] hover:text-black"
                   >
-                    {game.title === "OÜTIE Putt" ? "PLAY NOW" : "COMING SOON"} <ExternalLink className="ml-2 w-4 h-4" />
+                    {game.title === "OÜTIE Putt" ? "PLAY NOW" : "COMING SOON"}{" "}
+                    <ExternalLink className="ml-2 w-4 h-4" />
                   </a>
                 </div>
               </div>
@@ -147,5 +169,5 @@ export function GamesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
