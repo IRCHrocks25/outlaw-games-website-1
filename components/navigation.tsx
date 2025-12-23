@@ -138,15 +138,13 @@ export function Navigation() {
               asChild
               className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm px-6 py-2 rounded-full border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_2px_8px_rgba(255,255,255,0.3),inset_0_-2px_8px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden whitespace-nowrap"
             >
-              <a
-                href="https://app.outlaw.kuki.agency/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/outieputt"
                 className="relative z-10"
                 style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)" }}
               >
                 PLAY NOW
-              </a>
+              </Link>
             </Button>
             <button 
               onClick={() => setIsSearchOpen(true)}
@@ -246,15 +244,13 @@ export function Navigation() {
                 className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm px-6 py-3 w-full rounded-full border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_2px_8px_rgba(255,255,255,0.3),inset_0_-2px_8px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden mt-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <a
-                  href="https://app.outlaw.kuki.agency/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/outieputt"
                   className="relative z-10"
                   style={{ textShadow: "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)" }}
                 >
                   PLAY NOW
-                </a>
+                </Link>
               </Button>
             </div>
           </motion.div>

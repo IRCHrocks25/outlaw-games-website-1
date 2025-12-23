@@ -16,10 +16,14 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    turbopack: {
-      root: '.',
-    },
+  async redirects() {
+    return [
+      {
+        source: '/outieputt',
+        destination: 'https://app.outlaw.kuki.agency/',
+        permanent: false, // 302 temporary redirect
+      },
+    ];
   },
 }
 
