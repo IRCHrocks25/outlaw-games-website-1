@@ -9,15 +9,54 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Send } from "lucide-react"
 
+const WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/hlc77VG51DRyWz2cjqy4/webhook-trigger/b0ab0562-baf9-4446-b557-ba703c31eba9"
+
 export function Newsletter() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [email, setEmail] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Newsletter signup:", email)
-    setEmail("")
+    
+    if (!email || isLoading) return
+
+    setIsLoading(true)
+    setStatus("idle")
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          source: "newsletter",
+          timestamp: new Date().toISOString(),
+        }),
+      })
+
+      if (response.ok) {
+        setStatus("success")
+        setEmail("")
+        // Reset success message after 3 seconds
+        setTimeout(() => setStatus("idle"), 3000)
+      } else {
+        setStatus("error")
+        // Reset error message after 3 seconds
+        setTimeout(() => setStatus("idle"), 3000)
+      }
+    } catch (error) {
+      console.error("Newsletter signup error:", error)
+      setStatus("error")
+      // Reset error message after 3 seconds
+      setTimeout(() => setStatus("idle"), 3000)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -66,23 +105,32 @@ export function Newsletter() {
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="h-12 lg:h-14 bg-black/50 border-[#A4FF42]/30 text-white placeholder:text-white/40 focus:border-[#A4FF42] pr-12 lg:pr-14"
+                  disabled={isLoading}
+                  className="h-12 lg:h-14 bg-black/50 border-[#A4FF42]/30 text-white placeholder:text-white/40 focus:border-[#A4FF42] pr-12 lg:pr-14 disabled:opacity-50"
                   required
                 />
                 <Button
                   type="submit"
                   size="icon"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 lg:h-10 lg:w-10 bg-[#A4FF42] text-black hover:bg-[#8FE635]"
+                  disabled={isLoading}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 lg:h-10 lg:w-10 bg-[#A4FF42] text-black hover:bg-[#8FE635] disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                 </Button>
               </div>
               <Button
                 type="submit"
-                className="w-full h-12 lg:h-14 bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-base lg:text-lg"
+                disabled={isLoading}
+                className="w-full h-12 lg:h-14 bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-base lg:text-lg disabled:opacity-50"
               >
-                SUBSCRIBE
+                {isLoading ? "SUBSCRIBING..." : status === "success" ? "SUBSCRIBED!" : "SUBSCRIBE"}
               </Button>
+              {status === "success" && (
+                <p className="text-[#A4FF42] text-sm text-center">Thank you for subscribing!</p>
+              )}
+              {status === "error" && (
+                <p className="text-red-400 text-sm text-center">Something went wrong. Please try again.</p>
+              )}
             </motion.form>
           </div>
         </motion.div>
