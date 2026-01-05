@@ -79,12 +79,14 @@ export function GamesSection() {
             height={400}
             className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
           />
-          <Link
-            href="/outieputt"
+          <a
+            href="https://app.outlaw-do.kuki.agency/"
+            target="_blank"
+            rel="noopener noreferrer"
             className="absolute bottom-6 right-6 z-20 inline-flex items-center gap-2 px-6 py-3 bg-[#A4FF42] text-black font-bold rounded-lg transition-all duration-300 hover:bg-[#8CE02E] hover:scale-105 shadow-lg shadow-[#A4FF42]/20"
           >
             PLAY NOW
-          </Link>
+          </a>
         </motion.div>
 
         <div className="mt-8 lg:mt-16 flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 overflow-x-auto pb-4 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 snap-x snap-mandatory md:snap-none">
@@ -144,12 +146,14 @@ export function GamesSection() {
                   </p>
 
                   {game.title === "OÜTIE Putt" ? (
-                    <Link
-                      href="/outieputt"
+                    <a
+                      href="https://app.outlaw-do.kuki.agency/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="mt-4 lg:mt-6 w-full inline-flex items-center justify-center px-3 py-2 lg:px-4 lg:py-3 rounded-md border border-[#A4FF42] text-[#A4FF42] font-semibold text-sm transition-all duration-300 hover:bg-[#A4FF42] hover:text-black"
                     >
                       PLAY NOW
-                    </Link>
+                    </a>
                   ) : (
                     <a
                       href="https://www.outlawgames.app"
