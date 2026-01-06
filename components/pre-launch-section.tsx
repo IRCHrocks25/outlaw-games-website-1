@@ -2,7 +2,6 @@
 
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Zap, Gamepad2 } from "lucide-react";
@@ -517,8 +516,10 @@ export function PreLaunchSection() {
                 size="lg"
                 className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
               >
-                <Link
-                  href="/outieputt"
+                <a
+                  href="https://app.outlaw-do.kuki.agency/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="relative z-10 whitespace-nowrap"
                   style={{
                     textShadow:
@@ -526,7 +527,7 @@ export function PreLaunchSection() {
                   }}
                 >
                   PLAY NOW
-                </Link>
+                </a>
               </Button>
               {/* Glossy overlay for convex effect */}
               <motion.div
