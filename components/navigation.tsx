@@ -115,11 +115,15 @@ export function Navigation() {
                 aria-label="Download on the App Store"
               >
                 <Image
-                  src="/icons/apple.png"
+                  src="/app_store_logo2.webp"
                   alt="Download on the App Store"
                   width={140}
                   height={40}
                   className="h-10 w-auto opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-105"
+                  style={{ 
+                    border: 'none',
+                    outline: 'none'
+                  }}
                 />
               </a>
             </div>
@@ -220,18 +224,22 @@ export function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Image
-                    src="/icons/apple.png"
+                    src="/app_store_logo2.webp"
                     alt="Download on the App Store"
                     width={140}
                     height={40}
                     className="h-10 w-full object-contain opacity-90 active:opacity-100 transition-opacity"
+                    style={{ 
+                      border: 'none',
+                      outline: 'none'
+                    }}
                   />
                 </a>
               </div>
               
               <Button
                 asChild
-                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm px-6 py-3 w-full rounded-full border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_2px_8px_rgba(255,255,255,0.3),inset_0_-2px_8px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden mt-4"
+                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm px-6 py-3 w-full rounded-full border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_2px_8px_rgba(255,255,255,0.3),inset_0_-2px_8px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden mt-6"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <a

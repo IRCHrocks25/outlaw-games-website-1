@@ -153,29 +153,54 @@ export function Hero() {
               type: "spring",
               stiffness: 150,
             }}
-            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
+            className="mt-8 flex flex-row flex-wrap sm:flex-col sm:flex-nowrap gap-2 sm:gap-4 justify-center items-center"
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="w-full sm:w-auto"
-            >
-              <Button
-                asChild
-                size="lg"
-                className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto transition-all duration-300"
+            {/* Store Buttons - Side by side on mobile, row on desktop */}
+            <div className="flex flex-row flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center w-full sm:w-auto">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="flex-1 sm:flex-none sm:w-auto min-w-0"
               >
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="whitespace-nowrap"
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-xs sm:text-base md:text-lg px-3 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full transition-all duration-300"
                 >
-                  Get It on Google Play
-                </a>
-              </Button>
-            </motion.div>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap"
+                  >
+                    Get It on Google Play
+                  </a>
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="flex-1 sm:flex-none sm:w-auto min-w-0"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-xs sm:text-base md:text-lg px-3 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full transition-all duration-300"
+                >
+                  <a
+                    href="https://apps.apple.com/us/app/outlaw-games/id6753969904"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whitespace-nowrap"
+                  >
+                    Get in on App Store
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
+            {/* PLAY NOW Button */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -185,7 +210,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
+                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-xs sm:text-base md:text-lg px-3 sm:px-6 md:px-8 sm:px-20 md:px-24 py-3 sm:py-4 md:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
               >
                 <a
                   href="https://app.outieputt.com"
