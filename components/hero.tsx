@@ -92,7 +92,7 @@ export function Hero() {
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                   style={{ backgroundSize: "200% 100%" }}
                 />
-                <span className="relative z-10">NOW LIVE ON GOOGLE PLAY</span>
+                <span className="relative z-10">NOW LIVE ON APP STORE AND GOOGLE PLAY</span>
               </Badge>
             </motion.div>
           </motion.div>

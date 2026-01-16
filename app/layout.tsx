@@ -1,23 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import { SubdomainWrapper } from "@/components/subdomain-wrapper";
 import "./globals.css";
-
-const geist = Geist({ 
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["system-ui", "arial"],
-  variable: "--font-geist",
-});
-
-const geistMono = Geist_Mono({ 
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["monospace"],
-  variable: "--font-geist-mono",
-});
 
 export const metadata: Metadata = {
   title: "Outlaw",
@@ -40,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en">
       <body className="font-sans antialiased">
         {/* Google tag (gtag.js) */}
         <Script
