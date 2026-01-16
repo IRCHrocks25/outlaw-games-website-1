@@ -106,32 +106,22 @@ export function Navigation() {
                 />
               </a>
               
-              {/* iOS - Coming Soon */}
-              <div className="relative group/ios">
-                <div className="relative">
-                  <Image
-                    src="/icons/apple.png"
-                    alt="Download on the App Store"
-                    width={140}
-                    height={40}
-                    className="h-10 w-auto opacity-75 hover:opacity-85 transition-all duration-300"
-                  />
-                  {/* Elegant overlay with gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/40 rounded pointer-events-none" />
-                  {/* Shimmer effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/ios:translate-x-full transition-transform duration-1000 pointer-events-none" />
-                </div>
-                {/* Beautiful Coming Soon badge */}
-                <div className="absolute -top-1 -right-1 flex items-center gap-1 bg-gradient-to-r from-[#A4FF42] to-[#8FE635] px-2 py-0.5 rounded-full shadow-lg shadow-[#A4FF42]/30">
-                  <span className="text-[9px] font-bold text-black tracking-wide">COMING SOON</span>
-                  <div className="w-1.5 h-1.5 bg-black rounded-full animate-pulse" />
-                </div>
-                {/* Tooltip */}
-                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 px-3 py-2 bg-gradient-to-r from-black/95 to-black/90 text-white text-xs rounded-lg whitespace-nowrap opacity-0 group-hover/ios:opacity-100 transition-all duration-300 pointer-events-none shadow-xl border border-white/10">
-                  <span className="text-[#A4FF42] font-semibold">iOS App</span> - Coming Soon
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1 border-4 border-transparent border-t-black/95"></div>
-                </div>
-              </div>
+              {/* iOS - App Store */}
+              <a
+                href="https://apps.apple.com/us/app/outlaw-games/id6753969904"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+                aria-label="Download on the App Store"
+              >
+                <Image
+                  src="/icons/apple.png"
+                  alt="Download on the App Store"
+                  width={140}
+                  height={40}
+                  className="h-10 w-auto opacity-90 hover:opacity-100 transition-all duration-300 hover:scale-105"
+                />
+              </a>
             </div>
             
             <Button
@@ -220,25 +210,23 @@ export function Navigation() {
                   />
                 </a>
                 
-                {/* iOS - Coming Soon */}
-                <div className="flex-1 relative">
-                  <div className="relative">
-                    <Image
-                      src="/icons/apple.png"
-                      alt="Download on the App Store"
-                      width={140}
-                      height={40}
-                      className="h-10 w-full object-contain opacity-75"
-                    />
-                    {/* Elegant overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-black/40 rounded pointer-events-none" />
-                  </div>
-                  {/* Beautiful Coming Soon badge */}
-                  <div className="absolute -top-1 -right-1 flex items-center gap-1 bg-gradient-to-r from-[#A4FF42] to-[#8FE635] px-2 py-0.5 rounded-full shadow-lg shadow-[#A4FF42]/30">
-                    <span className="text-[8px] font-bold text-black tracking-wide">SOON</span>
-                    <div className="w-1 h-1 bg-black rounded-full animate-pulse" />
-                  </div>
-                </div>
+                {/* iOS - App Store */}
+                <a
+                  href="https://apps.apple.com/us/app/outlaw-games/id6753969904"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                  aria-label="Download on the App Store"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <Image
+                    src="/icons/apple.png"
+                    alt="Download on the App Store"
+                    width={140}
+                    height={40}
+                    className="h-10 w-full object-contain opacity-90 active:opacity-100 transition-opacity"
+                  />
+                </a>
               </div>
               
               <Button
