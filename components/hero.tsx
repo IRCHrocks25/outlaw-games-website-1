@@ -195,7 +195,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     className="whitespace-nowrap"
                   >
-                    Get in on App Store
+                    Get it on App Store
                   </a>
                 </Button>
               </motion.div>
