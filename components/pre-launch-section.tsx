@@ -248,7 +248,7 @@ export function PreLaunchSection() {
                   Now Live
                 </motion.span>
               </motion.span>{" "}
-              on Google Play
+              on Google Play and on App Store
             </motion.span>
           </motion.h2>
 
@@ -504,37 +504,67 @@ export function PreLaunchSection() {
               </motion.div>
             </motion.div>
 
-            {/* PLAY NOW Button */}
+            {/* Get It on App Store Button */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="relative w-full sm:w-auto"
+              className="w-full sm:w-auto"
             >
-              <Button
-                asChild
-                size="lg"
-                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
-              >
-                <a
-                  href="https://app.outieputt.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="relative z-10 whitespace-nowrap"
-                  style={{
-                    textShadow:
-                      "0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.5)",
-                  }}
-                >
-                  PLAY NOW
-                </a>
-              </Button>
-              {/* Glossy overlay for convex effect */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/5 to-transparent rounded-full pointer-events-none"
-                initial={{ opacity: 0.8 }}
-                whileHover={{ opacity: 1 }}
-              />
+                animate={{
+                  boxShadow: [
+                    "0 0 30px rgba(164,255,66,0.4)",
+                    "0 0 50px rgba(164,255,66,0.6)",
+                    "0 0 30px rgba(164,255,66,0.4)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "easeInOut",
+                }}
+                className="rounded-lg"
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="relative bg-[#A4FF42] text-black hover:bg-[#8FE635] font-semibold text-lg px-10 py-7 overflow-hidden group w-full sm:w-auto"
+                >
+                  <a
+                    href="https://apps.apple.com/us/app/outlaw-games/id6753969904"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative z-10"
+                  >
+                    <motion.span
+                      animate={{
+                        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Number.POSITIVE_INFINITY,
+                        ease: "linear",
+                      }}
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                      style={{ backgroundSize: "200% 100%" }}
+                    />
+                    <span className="relative z-10 flex items-center gap-2">
+                      Get it on App Store
+                      <motion.span
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Number.POSITIVE_INFINITY,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        →
+                      </motion.span>
+                    </span>
+                  </a>
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
 

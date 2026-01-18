@@ -40,7 +40,7 @@ const faqCategories = [
       {
         question: "Is OUTLAW Games available on mobile?",
         answer:
-          "Yes! OUTLAW Games is available on Android via Google Play Store. Our iOS app is coming soon, so iPhone users will be able to join the fun shortly.",
+          "Yes! OUTLAW Games is available on Android via Google Play Store and on App Store. iPhone users can download it now from the App Store.",
       },
     ],
   },
@@ -50,7 +50,7 @@ const faqCategories = [
       {
         question: "How do I create an account?",
         answer:
-          "Creating an account is simple! Download the OUTLAW Games app from Google Play (or wait for iOS), open it, and follow the on-screen instructions. You'll be asked to create a username and set up your profile. The process takes just a few minutes.",
+          "Creating an account is simple! Download the OUTLAW Games app from Google Play and on App Store, open it, and follow the on-screen instructions. You'll be asked to create a username and set up your profile. The process takes just a few minutes.",
       },
       {
         question: "Do I need a Solana wallet?",
