@@ -18,7 +18,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative h-screen overflow-hidden bg-black">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-black pb-4 sm:pb-6 md:pb-8">
       {/* Video Background with Parallax */}
       <motion.div style={{ y }} className="absolute inset-0">
         <video
@@ -39,7 +39,7 @@ export function Hero() {
       {/* Hero Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4"
+        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pt-16 sm:pt-20 md:pt-24"
       >
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
