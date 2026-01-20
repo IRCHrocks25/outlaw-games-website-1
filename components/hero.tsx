@@ -174,7 +174,7 @@ export function Hero() {
                     rel="noopener noreferrer"
                     className="whitespace-nowrap"
                   >
-                    Get It on Google Play
+                    Get it on Google Play
                   </a>
                 </Button>
               </motion.div>
