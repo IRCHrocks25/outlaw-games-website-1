@@ -18,7 +18,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-black pb-4 sm:pb-6 md:pb-8">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-black pb-8 sm:pb-6 md:pb-8">
       {/* Video Background with Parallax */}
       <motion.div style={{ y }} className="absolute inset-0">
         <video
@@ -39,7 +39,7 @@ export function Hero() {
       {/* Hero Content */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 pt-16 sm:pt-20 md:pt-24"
+        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20 pb-20 sm:pt-20 md:pt-24 sm:pb-0"
       >
         <motion.div
           initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -62,7 +62,7 @@ export function Hero() {
               stiffness: 200,
               damping: 15,
             }}
-            className="mb-6 inline-block"
+            className="mb-4 sm:mb-6 inline-block"
           >
             <motion.div
               animate={{
@@ -79,7 +79,7 @@ export function Hero() {
               }}
               className="inline-block rounded-full"
             >
-              <Badge className="bg-[#A4FF42]/20 text-[#A4FF42] border-[#A4FF42]/40 px-5 py-2 text-sm font-bold uppercase tracking-wider relative overflow-hidden">
+              <Badge className="bg-[#A4FF42]/20 text-[#A4FF42] border-[#A4FF42]/40 px-3 py-1.5 sm:px-5 sm:py-2 text-xs sm:text-sm font-bold uppercase tracking-wider relative overflow-hidden">
                 <motion.span
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
@@ -92,13 +92,13 @@ export function Hero() {
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                   style={{ backgroundSize: "200% 100%" }}
                 />
-                <span className="relative z-10">NOW LIVE ON APP STORE AND GOOGLE PLAY</span>
+                <span className="relative z-10 px-1">NOW LIVE ON APP STORE AND GOOGLE PLAY</span>
               </Badge>
             </motion.div>
           </motion.div>
 
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.3 }}
@@ -138,7 +138,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-6 text-lg sm:text-xl text-white/70 max-w-2xl mx-auto"
+            className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-white/70 max-w-2xl mx-auto px-2"
           >
             The first platform to deliver a true Play-to-Earn experience. Earn{" "}
             <span className="text-[#A4FF42] font-semibold">$OUTLAW</span> instantly through verified gameplay with zero upfront investment.
@@ -153,10 +153,10 @@ export function Hero() {
               type: "spring",
               stiffness: 150,
             }}
-            className="mt-8 flex flex-row flex-wrap sm:flex-col sm:flex-nowrap gap-2 sm:gap-4 justify-center items-center"
+            className="mt-6 sm:mt-8 flex flex-col gap-3 sm:gap-4 justify-center items-center w-full"
           >
-            {/* Store Buttons - Side by side on mobile, row on desktop */}
-            <div className="flex flex-row flex-wrap sm:flex-nowrap gap-2 sm:gap-4 justify-center w-full sm:w-auto">
+            {/* Store Buttons - Side by side on mobile and desktop */}
+            <div className="flex flex-row gap-2 sm:gap-4 justify-center items-center w-full sm:w-auto">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -166,7 +166,7 @@ export function Hero() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-xs sm:text-base md:text-lg px-3 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full transition-all duration-300"
+                  className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-xs sm:text-base md:text-lg px-2 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full transition-all duration-300"
                 >
                   <a
                     href="https://play.google.com/store/apps/details?id=com.outlawgame.android"
@@ -187,7 +187,7 @@ export function Hero() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-xs sm:text-base md:text-lg px-3 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full transition-all duration-300"
+                  className="bg-black/80 backdrop-blur-md border-2 border-[#A4FF42]/30 text-[#A4FF42] hover:bg-black/90 hover:border-[#A4FF42] hover:text-[#A4FF42] hover:shadow-[0_0_20px_rgba(164,255,66,0.5)] font-semibold text-xs sm:text-base md:text-lg px-2 sm:px-6 md:px-8 py-3 sm:py-4 md:py-6 w-full transition-all duration-300"
                 >
                   <a
                     href="https://apps.apple.com/us/app/outlaw-games/id6753969904"
@@ -210,7 +210,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-xs sm:text-base md:text-lg px-3 sm:px-6 md:px-8 sm:px-20 md:px-24 py-3 sm:py-4 md:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
+                className="relative bg-gradient-to-b from-[#A4FF42] via-[#8FE635] to-[#7AD528] text-white font-bold text-sm sm:text-base md:text-lg px-6 sm:px-20 md:px-24 py-3 sm:py-4 md:py-6 w-full sm:w-auto rounded-full border-2 sm:border-4 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4),inset_0_1px_6px_rgba(255,255,255,0.3),inset_0_-1px_6px_rgba(0,0,0,0.2)] sm:shadow-[0_0_20px_rgba(255,215,0,0.4),inset_0_2px_10px_rgba(255,255,255,0.3),inset_0_-2px_10px_rgba(0,0,0,0.2)] hover:shadow-[0_0_25px_rgba(255,215,0,0.6),inset_0_2px_12px_rgba(255,255,255,0.4),inset_0_-2px_12px_rgba(0,0,0,0.3)] transition-all duration-300 overflow-hidden"
               >
                 <a
                   href="https://app.outieputt.com"
@@ -237,7 +237,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
