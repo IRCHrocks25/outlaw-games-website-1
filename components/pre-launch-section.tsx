@@ -487,7 +487,7 @@ export function PreLaunchSection() {
                       style={{ backgroundSize: "200% 100%" }}
                     />
                     <span className="relative z-10 flex items-center gap-2">
-                      Get It on Google Play
+                      Get it on Google Play
                       <motion.span
                         animate={{ x: [0, 5, 0] }}
                         transition={{
