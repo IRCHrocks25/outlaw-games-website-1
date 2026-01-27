@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { PreLaunchSection } from "@/components/pre-launch-section"
+import { TokenStats } from "@/components/token-stats"
 import { AboutSection } from "@/components/about-section"
 import { GamesSection } from "@/components/games-section"
 import { MMORPGSection } from "@/components/mmorpg-section"
@@ -18,6 +19,7 @@ export default async function Home() {
     <main className="min-h-screen bg-background">
       <Navigation />
       <Hero />
+      <TokenStats />
       <PreLaunchSection />
       <AboutSection />
       <GamesSection />
