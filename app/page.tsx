@@ -1,7 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { TokenStats } from "@/components/token-stats"
-import { AboutSection } from "@/components/about-section"
 import { GamesSection } from "@/components/games-section"
 import { MMORPGSection } from "@/components/mmorpg-section"
 import { RoadmapSection } from "@/components/roadmap-section"
@@ -15,7 +14,6 @@ export default async function Home() {
       <Navigation />
       <Hero />
       <TokenStats />
-      <AboutSection />
       <GamesSection />
       <TechSection />
       <MMORPGSection />

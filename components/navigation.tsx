@@ -21,7 +21,7 @@ type NavItem =
 
 const navItems: NavItem[] = [
   { name: "Games", hash: "#games" },           // Maps to id="games" in GamesSection
-  { name: "About Us", hash: "#about" },        // Maps to id="about" in AboutSection
+  { name: "About Us", href: "/about" },        // Maps to /about page
   { name: "Technology", hash: "#technology" }, // Maps to id="technology" in TechSection
   { name: "Articles", href: "/articles" },     // Maps to /articles route
   { name: "Support", href: "/support" },        // Maps to /support page

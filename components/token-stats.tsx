@@ -7,6 +7,7 @@ import { useRef } from "react"
 import { Card } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import { TrendingUp, Users, Coins, ExternalLink } from "lucide-react"
+import Image from "next/image"
 import {
   ChartContainer,
   ChartTooltip,
@@ -572,13 +573,15 @@ export function TokenStats() {
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-3 px-6 py-3 bg-[#A4FF42]/10 border border-[#A4FF42]/30 rounded-xl hover:bg-[#A4FF42]/20 hover:border-[#A4FF42]/50 transition-all duration-300 group shadow-[0_0_20px_rgba(164,255,66,0.1)] hover:shadow-[0_0_30px_rgba(164,255,66,0.2)]"
             >
-              <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-2">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
-                  <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+               <div className="w-14 h-14 flex items-center justify-center rounded-lg overflow-hidden">
+                 <Image
+                   src="/images/jupiter.png"
+                   alt="Jupiter"
+                   width={56}
+                   height={56}
+                   className="w-full h-full object-contain"
+                 />
+               </div>
               <span className="text-white font-semibold group-hover:text-[#A4FF42] transition-colors">Buy on Jupiter</span>
               <ExternalLink className="w-4 h-4 text-[#A4FF42]/70 group-hover:text-[#A4FF42] transition-colors" />
             </motion.a>
@@ -592,12 +595,15 @@ export function TokenStats() {
               whileTap={{ scale: 0.95 }}
               className="flex items-center gap-3 px-6 py-3 bg-[#A4FF42]/10 border border-[#A4FF42]/30 rounded-xl hover:bg-[#A4FF42]/20 hover:border-[#A4FF42]/50 transition-all duration-300 group shadow-[0_0_20px_rgba(164,255,66,0.1)] hover:shadow-[0_0_30px_rgba(164,255,66,0.2)]"
             >
-              <div className="w-10 h-10 flex items-center justify-center bg-[#0052FF] rounded-lg p-2">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="2" y="2" width="20" height="20" rx="10" fill="white"/>
-                  <path d="M12 6V12L16 14" stroke="#0052FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+               <div className="w-14 h-14 flex items-center justify-center rounded-lg overflow-hidden">
+                 <Image
+                   src="/images/coinbase.png"
+                   alt="Coinbase"
+                   width={56}
+                   height={56}
+                   className="w-full h-full object-contain"
+                 />
+               </div>
               <span className="text-white font-semibold group-hover:text-[#A4FF42] transition-colors">Buy on Coinbase</span>
               <ExternalLink className="w-4 h-4 text-[#A4FF42]/70 group-hover:text-[#A4FF42] transition-colors" />
             </motion.a>

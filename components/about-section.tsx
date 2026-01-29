@@ -48,7 +48,7 @@ export function AboutSection() {
   const y = useTransform(scrollYProgress, [0, 1], [100, -100])
 
   return (
-    <section id="about" ref={containerRef} className="py-12 lg:py-24 bg-black relative overflow-hidden">
+    <section id="about" ref={containerRef} className="pt-24 pb-12 lg:pt-32 lg:pb-24 bg-black relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#A4FF42]/5 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[#A4FF42]/3 rounded-full blur-[100px]" />
