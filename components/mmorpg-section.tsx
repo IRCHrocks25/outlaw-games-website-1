@@ -9,7 +9,7 @@ export function MMORPGSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const [isPlaying, setIsPlaying] = useState(false)
-  const [isMuted, setIsMuted] = useState(true)
+  const [isMuted, setIsMuted] = useState(false)
 
   const features = [
     "Reputation shapes your path",
